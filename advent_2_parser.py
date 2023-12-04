@@ -3,7 +3,7 @@ data = []
 # {'nr': , 'red': 0, 'blue': 0, 'green': 0}
 colors = ['red', 'blue', 'green']
 hyp_set = {'red': 12, 'blue': 14, 'green': 13}
-with open("test_input2", "r") as f:
+with open("my_input2", "r") as f:
     while x := f.readline():
         x = x.rstrip() # remove crlf stuff on right side
         game_nr_str, game_data = x.split(":")
@@ -31,3 +31,11 @@ for d in data:
         print(f"valid game found: {d['nr']}")
         valid_games_summed += d['nr']
 print(f"solution: {valid_games_summed}")
+
+tmp = {'red': 0, 'blue': 0, 'green': 0}
+sub_total = 0
+for d in data:
+    res = d['red'] * d['blue'] * d['green']
+    print(f"powaaaaaa: {res}")
+    sub_total += res
+print(sub_total)
