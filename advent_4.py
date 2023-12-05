@@ -1,4 +1,5 @@
-
+card_extender = []
+card_multiplier = []
 total_score = 0
 with open("my_input4", "r") as f:
     while (x:=f.readline()):
@@ -13,10 +14,25 @@ with open("my_input4", "r") as f:
         tmp_score = 0
         for my_val in my_list_int:
             if my_val in win_list_int:
-                if tmp_score == 0:
-                    tmp_score = 1
-                else:
-                    tmp_score *= 2
-        print(f"card score:  {tmp_score}")
-        total_score += tmp_score
-print(total_score)
+                tmp_score += 1
+        card_extender.append(tmp_score)
+        card_multiplier.append(1)
+        print(tmp_score)
+
+print(f"{card_extender=}")
+
+
+for i, ce in enumerate(card_extender):
+    print(f"{card_multiplier=}")
+    multiplier_start = i + 1
+    multiplier_end = i + 1 + ce
+    if multiplier_start >= len(card_multiplier):
+        print(f"last card: {i=}, {ce=}")
+        break
+    if multiplier_end >= len(card_multiplier):
+        multiplier_end = len(card_multiplier)
+    for multiplier in range(card_multiplier[i]):
+        for mi in range(multiplier_start, multiplier_end):
+            card_multiplier[mi] += 1
+print(card_multiplier)
+print(sum(card_multiplier))
