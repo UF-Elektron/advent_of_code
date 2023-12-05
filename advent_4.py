@@ -1,6 +1,6 @@
 
 total_score = 0
-with open("test_input4", "r") as f:
+with open("my_input4", "r") as f:
     while (x:=f.readline()):
         _card, data = x.strip().split(':')
         win, my_val = data.split('|')
