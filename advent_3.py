@@ -7,7 +7,7 @@ part_numbers = []
 invalid_numbers = []
 data_buffer = []
 
-with open("my_input3", "r") as f:
+with open("input/adv3", "r") as f:
     while (x:= f.readline()):
         data_buffer.append(x.rstrip() + '..')
 

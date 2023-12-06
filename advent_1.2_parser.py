@@ -1,4 +1,4 @@
-file_name = "my_input"
+file_name = "input/adv1"
 valid_digits = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 digit_lookup = {'one': 1,
                 'two': 2,

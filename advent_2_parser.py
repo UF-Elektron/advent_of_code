@@ -3,7 +3,7 @@ data = []
 # {'nr': , 'red': 0, 'blue': 0, 'green': 0}
 colors = ['red', 'blue', 'green']
 hyp_set = {'red': 12, 'blue': 14, 'green': 13}
-with open("my_input2", "r") as f:
+with open("input/adv2", "r") as f:
     while x := f.readline():
         x = x.rstrip() # remove crlf stuff on right side
         game_nr_str, game_data = x.split(":")

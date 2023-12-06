@@ -2,9 +2,9 @@
 TESTING = False
 
 if TESTING:
-    file_name = 'test_input5'
+    file_name = 'input/test_adv5'
 else:
-    file_name = 'my_input5'
+    file_name = 'input/adv5'
 
 maps = {}
 map_names = []

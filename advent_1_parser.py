@@ -1,4 +1,4 @@
-file_name = "my_input"
+file_name = "input/adv1"
 results = []
 with open(file_name, "r") as f:
     while (x:= f.readline()):

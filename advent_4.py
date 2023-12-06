@@ -1,7 +1,7 @@
 card_extender = []
 card_multiplier = []
 total_score = 0
-with open("my_input4", "r") as f:
+with open("input/adv4", "r") as f:
     while (x:=f.readline()):
         _card, data = x.strip().split(':')
         win, my_val = data.split('|')
