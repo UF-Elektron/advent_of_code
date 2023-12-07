@@ -24,3 +24,15 @@ for i in range(len(time)):
             solution += 1
     multiplied *= solution
 print(multiplied)
+
+# part 2
+time_long = int("".join([str(t) for t in time]))
+distance_long = int("".join([str(d) for d in distance]))
+print(time_long)
+print(distance_long)
+solution = 0
+for t in range(time_long + 1):
+    res = (time_long - t) * (t * 1)
+    if res > distance_long:
+        solution += 1
+print(solution)
