@@ -6,7 +6,8 @@ file_name = "input/adv9"
 all_inputs = []
 with open(file_name, 'r') as f:
     while x:= f.readline().rstrip():
-        all_inputs.append(list(map(int, x.split(' '))))
+        # solve part 2: just fill list in backwards by adding [::-1] to list
+        all_inputs.append(list(map(int, x.split(' ')))[::-1])
 #print(all_inputs)
 
 all_numbers_added = 0
