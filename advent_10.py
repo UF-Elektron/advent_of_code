@@ -62,33 +62,40 @@ for dir in dir_cycle:
         tile_map['S'].update({dir: True})
 
 print(tile_map['S'])
-
+tile_count = len(pipe_map) * len(pipe_map[0])
+max_tries = tile_count * 4
 print(f"Start at {start_pos}")
 current_position = start_pos
 new_position = start_pos
 steps = 0
 current_direction = 'N'
-# TODO: check only valid directions of current position!
-for i in range(5000):
-    current_direction = get_direction(current_direction)
-    new_position = move_pos(current_direction, **current_position)
-    try:
-        new_tile = get_tile(**new_position)
-    except:
-        # don't fall of the edge!
-        continue
-    if tile_map[new_tile][direction_from[current_direction]]:
-        print(f"current pos: {current_position}")
-        print(f"new pos: {new_position}")
-        current_position = new_position
-        current_direction = direction_from[current_direction]
-        print(get_tile(**current_position))
-        steps += 1
-        if current_position == start_pos:
-            print(f"completed circle in {steps} steps")
-            break
-    else:
-        None
-        #print("no path")
+new_tile = get_tile(**current_position)
 
-print(f"farthest position: {steps /2 }")
+# max tries: every tile (row * columns) * directions (4)
+# if end is not found in max_tries an exception is raised
+for i in range(max_tries):
+    current_direction = get_direction(current_direction)
+    if tile_map[new_tile][current_direction]:
+        new_position = move_pos(current_direction, **current_position)
+        try:
+            new_tile = get_tile(**new_position)
+        except:
+            # don't fall of the edge!
+            continue
+        if tile_map[new_tile][direction_from[current_direction]]:
+            print(f"current pos: {current_position}")
+            print(f"new pos: {new_position}")
+            current_position = new_position
+            current_direction = direction_from[current_direction]
+            print(get_tile(**current_position))
+            steps += 1
+            if current_position == start_pos:
+                print(f"completed circle in {steps} steps")
+                break
+        else:
+            None
+            #print("no path")
+else:
+    raise Exception(f"End not found: {max_tries=}")
+
+print(f"farthest position: {steps / 2}")
